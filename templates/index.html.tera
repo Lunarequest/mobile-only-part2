@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+		<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-    width, initial-scale=1.0">
+		<!-- Name of web application (only should be used if the website is used as an app) -->
+		<meta name="application-name" content="rust websites on phone">
+		<meta name="robots" content="index,follow"><!-- All Search Engines -->
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+				<style>
+						h1,h2 {
+								text-align: center;
+						}
+						img {
+								max-width: 100%;
+								height: auto;
+						}
+				</style>	
+		 </head>
+		 <body>
+				 <div class="container" align=center >
+						 <h2>mobile only 2 electric Boogaloo</h2>
+						 <b> why?</b>
+						  <p> because I've got nothing better to do and I like rust. I've gone a bit further this time and we have got actually decent CSS.meta tags and buttons that do things. Maybe.
+						</p>
+						 <b>How?</b>
+						 <p> like last time I used an chroot/proot in termux. However this time I used <code>proot-distro</code> to make and manage the environment. the benefits of this include stuff like proc being mounted properly fixing many issues the old method ran into. I also switched from bash to zsh with dotfiles for zsh and neovim. This helped make the experience more comfortable.</p>
+						 <b>suggestions for people attempting this</b>
+						<p>dotfiles are your best friend. they help make things more sane. A good dotfile file can make all the difference.If you aren't comfortable with making your own try finding one online. For zsh zsh for humans is a good choice.for vim/neovim spacevim is one of the better ones. Also for databases sqlite is your only choice</p>
+				 </div>
+				<button class="btn btn-primary" onclick="additional_contentd()">Additional content</button></div>
+		<div id="additional_content"></div>		
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+			<script>
+					async function additional_contentd(){
+						var additional_content_div =  document.getElementById("additional_content");
+						var domain = window.location.href;
+						console.log(domain);
+						req = await fetch(domain+"/message"); 
+						json = await req.json();
+
+						const img = document.createElement('img');
+						img.src = json.message;
+						additional_content_div.appendChild(img);
+						window.scrollTo(0,document.body.scrollHeight);
+					}
+			</script>
+		</body>
+</html>
