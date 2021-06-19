@@ -39,7 +39,6 @@
 								var domain = window.location.href;
 								req = await fetch(domain+"/message"); 
 								json = await req.json();
-
 								const img = document.createElement('img');
 								img.src = json.message;
 								additional_content_div.appendChild(img);
