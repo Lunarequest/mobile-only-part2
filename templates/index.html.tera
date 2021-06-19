@@ -50,6 +50,8 @@
 								img.src = json.message;
 								additional_content_div.appendChild(img);
 								window.scrollTo(0,document.body.scrollHeight);
+						} else {
+							additional_content_div.innerHTML = "";
 						}
 					}
 			</script>
