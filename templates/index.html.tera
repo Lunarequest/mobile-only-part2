@@ -35,6 +35,7 @@
 			<script>
 					async function additional_contentd(){
 						var additional_content_div =  document.getElementById("additional_content");
+						if (additional_content_div.hasChildNodes() == false){
 						var domain = window.location.href;
 						console.log(domain);
 						req = await fetch(domain+"/message"); 
@@ -43,7 +44,7 @@
 						const img = document.createElement('img');
 						img.src = json.message;
 						additional_content_div.appendChild(img);
-						window.scrollTo(0,document.body.scrollHeight);
+								window.scrollTo(0,document.body.scrollHeight);}
 					}
 			</script>
 		</body>
