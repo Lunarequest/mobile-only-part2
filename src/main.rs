@@ -2,6 +2,7 @@
 use rocket_dyn_templates::Template;
 use std::collections::HashMap;
 use rocket::serde::{Serialize, json::Json};
+use rocket::response::Redirect;
 
 #[derive(Serialize)]
 struct Message {
@@ -21,7 +22,12 @@ fn message() -> Json<Message> {
     Json(Message { message: message })
 }
 
+#[get("/additional_content")]
+fn rickroll() -> Redirect {
+    Redirect::to(uri!("http://www.youtube.com/watch?v=gvGyS5j9aFY"))
+}
+
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/",routes![index,message]).attach(Template::fairing())
+    rocket::build().mount("/",routes![index,message,rickroll]).attach(Template::fairing())
 }
